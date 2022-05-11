@@ -11,7 +11,6 @@ gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.4'
 gem 'rollbar'
 gem 'sass-rails', '>= 6'
-gem 'sqlite3', '~> 1.4'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 
@@ -21,6 +20,7 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'slim_lint'
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
@@ -31,12 +31,13 @@ group :development do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
-  # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+group :production do
+  gem 'pg'
+end
+
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
